@@ -1,0 +1,20 @@
+# permissions for end users to view dots.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: dot-viewer-role
+rules:
+- apiGroups:
+  - operators.adityajoshi.online
+  resources:
+  - dots
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - operators.adityajoshi.online
+  resources:
+  - dots/status
+  verbs:
+  - get

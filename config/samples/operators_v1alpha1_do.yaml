@@ -1,0 +1,8 @@
+apiVersion: operators.adityajoshi.online/v1alpha1
+kind: DO
+metadata:
+  name: test-do-cr5
+spec:
+   replicas: 4
+   image: nginx
+

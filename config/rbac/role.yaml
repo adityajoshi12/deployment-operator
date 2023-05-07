@@ -1,0 +1,33 @@
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  creationTimestamp: null
+  name: manager-role
+rules:
+- apiGroups:
+  - operators.adityajoshi.online
+  resources:
+  - does
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - operators.adityajoshi.online
+  resources:
+  - does/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - operators.adityajoshi.online
+  resources:
+  - does/status
+  verbs:
+  - get
+  - patch
+  - update
