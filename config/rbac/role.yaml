@@ -31,3 +31,29 @@ rules:
   - get
   - patch
   - update
+- apiGroups:
+  - operators.adityajoshi.online
+  resources:
+  - scales
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - operators.adityajoshi.online
+  resources:
+  - scales/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - operators.adityajoshi.online
+  resources:
+  - scales/status
+  verbs:
+  - get
+  - patch
+  - update

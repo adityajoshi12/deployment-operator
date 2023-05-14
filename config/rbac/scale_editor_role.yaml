@@ -1,0 +1,24 @@
+# permissions for end users to edit scales.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: scale-editor-role
+rules:
+- apiGroups:
+  - operators.adityajoshi.online
+  resources:
+  - scales
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - operators.adityajoshi.online
+  resources:
+  - scales/status
+  verbs:
+  - get

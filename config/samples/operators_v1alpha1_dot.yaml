@@ -1,6 +1,0 @@
-apiVersion: operators.adityajoshi.online/v1alpha1
-kind: Dot
-metadata:
-  name: dot-sample
-spec:
-  # TODO(user): Add fields here

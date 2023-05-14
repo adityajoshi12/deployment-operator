@@ -23,47 +23,47 @@ import (
 // EDIT THIS FILE!  THIS IS SCAFFOLDING FOR YOU TO OWN!
 // NOTE: json tags are required.  Any new fields you add must have json tags for the fields to be serialized.
 
-// DOSpec defines the desired state of DO
-type DOSpec struct {
+// ScaleSpec defines the desired state of Scale
+type ScaleSpec struct {
 	// INSERT ADDITIONAL SPEC FIELDS - desired state of cluster
 	// Important: Run "make" to regenerate code after modifying this file
 
-	// +kubebuilder:validation:Maximum=10
-	// +kubebuilder:validation:Minimum=1
-	// Total number replicas you want to have
-	Replicas int64 `json:"replicas,omitempty"`
-	// Pods will be created with this image
-	Image string `json:"image,omitempty"`
+	StartTime      int    `json:"startTime"`
+	EndTime        int    `json:"endTime"`
+	MinReplicas    int    `json:"minReplicas"`
+	MaxReplicas    int    `json:"maxReplicas"`
+	DeploymentName string `json:"deploymentName"`
+	// +kubebuilder:default=default
+	DeploymentNamespace string `json:"deploymentNamespace"`
 }
 
-// DOStatus defines the observed state of DO
-type DOStatus struct {
+// ScaleStatus defines the observed state of Scale
+type ScaleStatus struct {
 	// INSERT ADDITIONAL STATUS FIELD - define observed state of cluster
 	// Important: Run "make" to regenerate code after modifying this file
-	PodTemplateHash string `json:"pod-template-hash"`
 }
 
 //+kubebuilder:object:root=true
 //+kubebuilder:subresource:status
 
-// DO is the Schema for the does API
-type DO struct {
+// Scale is the Schema for the scales API
+type Scale struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
 
-	Spec   DOSpec   `json:"spec,omitempty"`
-	Status DOStatus `json:"status,omitempty"`
+	Spec   ScaleSpec   `json:"spec,omitempty"`
+	Status ScaleStatus `json:"status,omitempty"`
 }
 
 //+kubebuilder:object:root=true
 
-// DOList contains a list of DO
-type DOList struct {
+// ScaleList contains a list of Scale
+type ScaleList struct {
 	metav1.TypeMeta `json:",inline"`
 	metav1.ListMeta `json:"metadata,omitempty"`
-	Items           []DO `json:"items"`
+	Items           []Scale `json:"items"`
 }
 
 func init() {
-	SchemeBuilder.Register(&DO{}, &DOList{})
+	SchemeBuilder.Register(&Scale{}, &ScaleList{})
 }

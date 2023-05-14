@@ -1,0 +1,12 @@
+apiVersion: operators.adityajoshi.online/v1alpha1
+kind: Scale
+metadata:
+  name: scale-sample
+spec:
+  startTime: 8
+  endTime: 13
+  minReplicas: 3
+  maxReplicas: 4
+  deploymentName: nginx
+  deploymentNamespace: default
+

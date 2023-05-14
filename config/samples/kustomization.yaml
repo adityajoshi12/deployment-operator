@@ -2,4 +2,5 @@
 resources:
 - operators_v1alpha1_do.yaml
 - operators_v1alpha1_dot.yaml
+- operators_v1alpha1_scale.yaml
 #+kubebuilder:scaffold:manifestskustomizesamples
